@@ -1,105 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SVC – Sai Visiting Card Service</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>SVC – Sai Visiting Card Service</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-      color:#fff;
-    }
+<style>
+body{
+  margin:0;
+  font-family: system-ui, Arial, sans-serif;
+  background:#ffffff;
+  color:#222;
+}
 
-    header{
-      padding:20px;
-      text-align:center;
-      font-size:28px;
-      font-weight:bold;
-      letter-spacing:1px;
-    }
+header{
+  padding:18px;
+  text-align:center;
+  font-size:22px;
+  font-weight:600;
+  border-bottom:1px solid #eee;
+}
 
-    nav{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      margin-bottom:20px;
-    }
+nav{
+  display:flex;
+  justify-content:space-around;
+  border-bottom:1px solid #eee;
+}
 
-    nav button{
-      background:rgba(255,255,255,0.15);
-      border:none;
-      padding:10px 20px;
-      color:white;
-      font-size:16px;
-      border-radius:25px;
-      cursor:pointer;
-      transition:0.3s;
-    }
+nav button{
+  flex:1;
+  padding:14px;
+  border:none;
+  background:white;
+  font-size:16px;
+  cursor:pointer;
+}
 
-    nav button:hover{
-      background:#00ffcc;
-      color:#000;
-    }
+nav button.active{
+  border-bottom:2px solid #000;
+  font-weight:600;
+}
 
-    .section{
-      display:none;
-      padding:30px;
-      max-width:900px;
-      margin:auto;
-      animation:fade 0.5s ease;
-    }
+.section{
+  display:none;
+  padding:20px;
+  max-width:900px;
+  margin:auto;
+}
 
-    .active{
-      display:block;
-    }
+.section.active{
+  display:block;
+}
 
-    @keyframes fade{
-      from{opacity:0; transform:translateY(10px);}
-      to{opacity:1; transform:translateY(0);}
-    }
+.card{
+  background:#fafafa;
+  padding:18px;
+  border-radius:12px;
+  border:1px solid #eee;
+  margin-bottom:16px;
+}
 
-    .card{
-      background:rgba(0,0,0,0.3);
-      padding:20px;
-      border-radius:15px;
-      margin-bottom:20px;
-    }
+.stickers{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    .stickers{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-    }
+.sticker{
+  width:90px;
+  height:90px;
+  background:#fff;
+  border:1px solid #ccc;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+}
 
-    .sticker{
-      width:120px;
-      height:120px;
-      background:#00ffcc;
-      color:#000;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:bold;
-    }
+.oval{ border-radius:45px / 30px; }
+.circle{ border-radius:50%; }
+.rect{ border-radius:8px; }
 
-    .oval{ border-radius:60px / 40px; }
-    .circle{ border-radius:50%; }
-    .rect{ border-radius:10px; }
-
-    a.whatsapp{
-      display:inline-block;
-      margin-top:15px;
-      padding:12px 25px;
-      background:#25D366;
-      color:white;
-      text-decoration:none;
-      border-radius:30px;
-      font-weight:bold;
-    }
-  </style>
+.whatsapp{
+  display:inline-block;
+  padding:12px 20px;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:600;
+}
+</style>
 </head>
 
 <body>
@@ -107,12 +98,11 @@
 <header>SVC – Sai Visiting Card Service</header>
 
 <nav>
-  <button onclick="show('home')">Home</button>
-  <button onclick="show('about')">About</button>
-  <button onclick="show('contact')">Contact</button>
+  <button class="active" onclick="show('home',this)">Home</button>
+  <button onclick="show('about',this)">About</button>
+  <button onclick="show('contact',this)">Contact</button>
 </nav>
 
-<!-- HOME -->
 <div id="home" class="section active">
   <div class="card">
     <h2>Professional Visiting Cards</h2>
@@ -120,47 +110,41 @@
   </div>
 </div>
 
-<!-- ABOUT -->
 <div id="about" class="section">
   <div class="card">
-    <h2>Our Services</h2>
+    <h3>Kitchen</h3>
+    <p>Kitchen branding & visiting card solutions available.</p>
 
-    <h3>🍽 Kitchen</h3>
-    <p>Kitchen related visiting cards & branding available</p>
-
-    <h3>🏷 Stickers</h3>
+    <h3>Stickers</h3>
     <div class="stickers">
       <div class="sticker oval">Oval</div>
       <div class="sticker circle">Circle</div>
       <div class="sticker rect">Rectangle</div>
     </div>
 
-    <p style="margin-top:15px;">
-      <b>Caption:</b> Can be done in anyyyyyyyyy size
-    </p>
+    <p><b>Caption:</b> Can be done in anyyyyyyyyy size</p>
   </div>
 </div>
 
-<!-- CONTACT -->
 <div id="contact" class="section">
   <div class="card">
-    <h2>Contact Us</h2>
-    <p>📞 WhatsApp: <b>9923917838</b></p>
+    <h3>Contact</h3>
+    <p>WhatsApp: <b>9923917838</b></p>
 
-    <a class="whatsapp"
-       href="https://wa.me/919923917838"
-       target="_blank">
-       Chat on WhatsApp
+    <a class="whatsapp" href="https://wa.me/919923917838" target="_blank">
+      Chat on WhatsApp
     </a>
   </div>
 </div>
 
 <script>
-  function show(id){
-    document.querySelectorAll('.section')
-      .forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
+function show(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
 </script>
 
 </body>
