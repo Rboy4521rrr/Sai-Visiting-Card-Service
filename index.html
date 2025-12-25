@@ -6,6 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+:root{
+  --primary:#111;
+  --light:#f7f7f7;
+  --border:#e5e5e5;
+}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family: system-ui, Arial, sans-serif;
@@ -13,18 +23,20 @@ body{
   color:#222;
 }
 
+/* HEADER */
 header{
-  padding:18px;
+  padding:22px;
   text-align:center;
-  font-size:22px;
-  font-weight:600;
-  border-bottom:1px solid #eee;
+  font-size:24px;
+  font-weight:700;
+  background:linear-gradient(135deg,#000,#333);
+  color:white;
 }
 
+/* NAV */
 nav{
   display:flex;
-  justify-content:space-around;
-  border-bottom:1px solid #eee;
+  border-bottom:1px solid var(--border);
 }
 
 nav button{
@@ -34,61 +46,96 @@ nav button{
   background:white;
   font-size:16px;
   cursor:pointer;
+  transition:.3s;
+}
+
+nav button:hover{
+  background:var(--light);
 }
 
 nav button.active{
-  border-bottom:2px solid #000;
-  font-weight:600;
+  border-bottom:3px solid var(--primary);
+  font-weight:700;
 }
 
+/* SECTIONS */
 .section{
   display:none;
-  padding:20px;
+  padding:24px;
   max-width:900px;
   margin:auto;
+  animation:fade .3s ease;
 }
 
 .section.active{
   display:block;
 }
 
+/* CARD */
 .card{
   background:#fafafa;
-  padding:18px;
-  border-radius:12px;
-  border:1px solid #eee;
-  margin-bottom:16px;
+  padding:22px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  margin-bottom:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.04);
 }
 
+.card h2,.card h3{
+  margin-top:0;
+}
+
+/* STICKERS */
 .stickers{
   display:flex;
-  gap:12px;
+  gap:16px;
   flex-wrap:wrap;
+  margin-top:10px;
 }
 
 .sticker{
-  width:90px;
-  height:90px;
-  background:#fff;
+  width:100px;
+  height:100px;
+  background:white;
   border:1px solid #ccc;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:14px;
+  font-weight:600;
+  transition:.3s;
 }
 
-.oval{ border-radius:45px / 30px; }
-.circle{ border-radius:50%; }
-.rect{ border-radius:8px; }
+.sticker:hover{
+  transform:translateY(-5px);
+  box-shadow:0 6px 15px rgba(0,0,0,.15);
+}
 
+.oval{ border-radius:50px / 32px; }
+.circle{ border-radius:50%; }
+.rect{ border-radius:10px; }
+
+/* WHATSAPP */
 .whatsapp{
   display:inline-block;
-  padding:12px 20px;
+  margin-top:10px;
+  padding:12px 22px;
   background:#25D366;
   color:white;
   text-decoration:none;
-  border-radius:8px;
-  font-weight:600;
+  border-radius:10px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.whatsapp:hover{
+  background:#1ebe5b;
+}
+
+/* ANIMATION */
+@keyframes fade{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:none;}
 }
 </style>
 </head>
@@ -106,29 +153,29 @@ nav button.active{
 <div id="home" class="section active">
   <div class="card">
     <h2>Professional Visiting Cards</h2>
-    <p>Best price • Fast service • Quality print • Trusted work</p>
+    <p>Affordable pricing • Fast delivery • Premium quality print • Trusted service</p>
   </div>
 </div>
 
 <div id="about" class="section">
   <div class="card">
-    <h3>Kitchen</h3>
-    <p>Kitchen branding & visiting card solutions available.</p>
+    <h3>Kitchen Branding</h3>
+    <p>Complete kitchen branding & custom visiting card solutions available.</p>
 
-    <h3>Stickers</h3>
+    <h3>Sticker Shapes</h3>
     <div class="stickers">
       <div class="sticker oval">Oval</div>
       <div class="sticker circle">Circle</div>
       <div class="sticker rect">Rectangle</div>
     </div>
 
-    <p><b>Caption:</b> Can be done in anyyyyyyyyy size</p>
+    <p><b>Note:</b> Stickers available in any custom size.</p>
   </div>
 </div>
 
 <div id="contact" class="section">
   <div class="card">
-    <h3>Contact</h3>
+    <h3>Contact Us</h3>
     <p>WhatsApp: <b>9923917838</b></p>
 
     <a class="whatsapp" href="https://wa.me/919923917838" target="_blank">
